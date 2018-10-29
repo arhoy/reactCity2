@@ -1,0 +1,11 @@
+.Button{
+    background: white;
+    padding: 1rem 2rem;
+    border: none;
+}
+.Red{
+    background-color: red;
+}
+.Green{
+    background-color: rgba(0, 128, 0, 0.616);
+}

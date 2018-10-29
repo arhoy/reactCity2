@@ -1,0 +1,9 @@
+.Featured{
+    background-color: rgb(17, 23, 45);
+    position: relative;
+    margin: 0 auto;
+    width: 1280px;
+    margin-top: 1rem;
+    height: 800px;
+    overflow: hidden;
+}

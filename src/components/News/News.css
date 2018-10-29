@@ -1,0 +1,14 @@
+.News{
+    font-size: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+.News h2{
+    margin-bottom: 3px;
+}
+.News input{
+    margin-bottom: 1rem;
+}

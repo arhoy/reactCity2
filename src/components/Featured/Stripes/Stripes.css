@@ -1,0 +1,8 @@
+.Stripes{
+    display: flex;
+    justify-content: center;
+    color:white;
+    width: 230px;
+    height: 1200px;
+    position: absolute;
+}

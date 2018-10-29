@@ -1,0 +1,37 @@
+
+.Text{
+    position: relative;
+    color: #ffffff;
+    transform: translate(270px,140px);
+    z-index: 90;
+  
+
+}
+.Text_number{
+    position: absolute;
+    font-family: 'Audiowide', cursive;
+    font-size: 270px;
+
+}
+.Text_blurb{
+    font-size: 5rem;
+    position: relative;
+    color: #ffffff;
+    z-index: 90;
+    font-family: 'Lato', sans-serif;
+    background: rgb(17, 23, 45);
+    margin: 5px 0px;
+    padding: 1rem 2rem;
+    display: inline-block;
+}
+
+.Text_player{
+    color:rgb(68, 45, 45);
+    width: 500px;
+    height: 500px;
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    position: absolute;
+    left: 305px;
+    top:-58px
+}

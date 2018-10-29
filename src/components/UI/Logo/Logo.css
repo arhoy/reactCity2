@@ -1,0 +1,12 @@
+.LogoHolder{
+    position: relative;
+}
+.Logo{
+    position: absolute;
+    left:14px;
+    top:3px;
+    font-size: 2rem;
+    color:black;
+    font-weight: 900;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

@@ -1,0 +1,15 @@
+
+.Header{
+    width:100%;
+}
+.AppBar{
+    background-color: rgba(255, 255, 255, 0.842) !important;
+    color:black !important;
+    position: 'fixed'!important;
+}
+.Toolbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}

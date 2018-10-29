@@ -1,0 +1,6 @@
+.Matches{
+    background-color: lightblue;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    padding: 1rem;
+}

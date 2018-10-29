@@ -1,0 +1,15 @@
+.GoogleMaps{
+    position:relative;
+}
+.Location{
+    position: absolute;
+    bottom:0;
+    right:0;
+    width:100%;
+    height: 2rem;
+    color:white;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

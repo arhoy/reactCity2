@@ -1,0 +1,20 @@
+.matchesPage{
+    padding-top: 4rem;
+    background-color: #fff;
+    display: grid;
+    grid-template-columns:  10% 5fr 10%;
+    grid-template-rows: 1fr 5fr 1fr;
+}
+.row1{
+    grid-row: 1/2;
+    grid-column: 2/3;
+}
+.row2{
+    grid-row: 2/3;
+    grid-column: 2/3;
+    
+}
+.row3{
+    grid-row: 3/4;
+    grid-column: 2/3;
+}
