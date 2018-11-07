@@ -1,30 +1,66 @@
 .Match{
     display: grid;
-    grid-template-rows: 50% 50%;
+    grid-template-rows: 20% 40% 40% 20%;
     grid-template-columns: 80% 20%;
     grid-gap:0.5rem;
     margin: 2rem 1rem;
     background-color:lightblue;
+    padding: 1rem 0.5rem;
     
     
 }
-.Match__elem_team{
-    background-color: white;
-    display:inline-block;
+.MatchDate{
+    grid-column: 1/-1;
+    grid-row: 1/2;
+    display: flex;
+    color:rgb(51, 51, 51);
+    justify-self: center;
+}
+
+.Team{
+    background:white;
     padding: 0.5rem;
     display: flex;
-    justify-content: flex=start;
+    align-items: center;
+    font-size: 1.2rem;
 }
-.Match__elem_result{
-    background-color: rgb(60, 60, 93);
-    color:white;
-    display:inline-block;
-    padding: 0.5rem;
+.Team img{
+    width: 40px;
+    height:40px;
+    margin-right: 0.5rem;
+}
+
+.MatchLocal{
+    grid-column: 1/2;
+    grid-row: 2/3;
+}
+.MatchAway{
+    grid-column: 1/2;
+    grid-row: 3/4;
+}
+.Result{
+    background:rgba(54, 47, 47, 0.644);
+    padding: 0.5rem 1rem;
     display: flex;
     justify-content: center;
-    width: fit-content;
+    align-items: center;
+    color:white;
+    font-weight: 400;
 }
-.Match__icon{
-    background-size: cover;
-    background-color: red;
+.ResultLocal{
+    grid-column: 2/3;
+    grid-row: 2/3;
+}
+.ResultAway{
+    grid-column: 2/3;
+    grid-row: 3/4;
+}
+.MatchStadium{
+    display: flex;
+    justify-self: center;
+    grid-column: 1/-1;
+    grid-row: 4/5;
+    color:rgb(59, 59, 59);
+    font-size: 1.1rem;
+    font-style: oblique;
 }

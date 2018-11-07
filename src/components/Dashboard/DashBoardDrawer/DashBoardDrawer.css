@@ -1,0 +1,15 @@
+.DashBoardDrawer{
+    background-color: rgba(63, 60, 60,0.95);
+    color:white;
+    display:flex;
+    flex-direction: column;
+    position: fixed;
+    height: 100%;
+    z-index:-1;
+
+}
+
+.DashBoardDrawer * {
+    color:white;
+}
+

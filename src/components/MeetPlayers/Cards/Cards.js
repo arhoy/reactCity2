@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import {easePolyOut} from 'd3-ease';
-import Animate from 'react-move/Animate';
 import classes from '../Cards/Cards'
 import Player1 from '../../../resources/images/players/player_to_upload/DEF/tosin_adarabioyo.png';
+// import {easePolyOut} from 'd3-ease';
+// import Animate from 'react-move/Animate';
 
 
 class Cards extends Component {

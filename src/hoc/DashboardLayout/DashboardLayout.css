@@ -1,0 +1,14 @@
+.DashboardLayout{
+    height: 100vh;
+    display: grid;
+    grid-template-columns: minmax(100px,10%) 6fr;
+    grid-template-rows: 1fr 5fr;
+    padding-top: 4rem;
+}
+.Side{
+    grid-column: 1/2;
+}
+.Main{
+    grid-column: 2/-1;
+    margin-left: 1rem;
+}

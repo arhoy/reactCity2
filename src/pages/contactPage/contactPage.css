@@ -1,8 +1,8 @@
-.matchesPage{
+.contactPage{
     padding-top: 4rem;
     background-color: #fff;
     display: grid;
-    grid-template-columns:  1fr 8fr 1fr;
+    grid-template-columns:  10% 5fr 10%;
     grid-template-rows: 1fr 5fr 1fr;
 }
 .row1{

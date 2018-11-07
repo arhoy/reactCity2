@@ -1,0 +1,9 @@
+.inputElement{
+    outline:none;
+    padding: 0.5rem 1rem;
+}
+
+.inputElement:focus{
+    outline:none;
+    background-color: lightblue;
+}

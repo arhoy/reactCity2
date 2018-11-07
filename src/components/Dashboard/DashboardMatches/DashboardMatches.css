@@ -1,0 +1,32 @@
+.DashboardMatches{
+    display: flex;
+    justify-content: center;
+}
+.formGroup{
+   
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+   
+}
+.formGroupAway{
+    color:red;
+    background-color: rgb(243, 201, 201);
+}
+.formGroupLocal{
+    color:rgb(37, 4, 131);
+    background-color: rgb(201, 228, 243);
+}
+.actionButton{
+    margin-top: 5px;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    background-color: rgb(240, 138, 44);
+    color:white;
+    outline:none;
+    border:0;
+}
+.actionButton:hover{
+  background-color: green;
+  cursor: pointer;
+  font-weight: 700;
+}

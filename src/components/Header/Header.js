@@ -23,7 +23,9 @@ class Header extends Component {
                             <div>
                                 <Link to = '/basic'><Button colors = "inherit">Basic</Button></Link>
                                 <Link to = '/matches'><Button colors = "inherit">Matches</Button></Link>
-                                <Link to = '/about'><Button colors = "inherit">About</Button></Link>
+                                <Link to = '/signin'><Button colors = "inherit">Sign in</Button></Link>
+                                <Link to = '/contact'><Button colors = "inherit">Contact</Button></Link>
+                                <Link to = '/dashboard_matches/edit_match'><Button colors = "inherit">Edit Match</Button></Link>
                             </div>
                         
                         </Toolbar>

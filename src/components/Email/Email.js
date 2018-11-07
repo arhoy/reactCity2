@@ -1,60 +1,167 @@
 import React, { Component } from 'react';
+import Input from '../UI/Input/Input';
+import Button from '../UI/Button/Button';
 import classes from './Email.css';
-import FormFields from './FormFields/FormFields';
-import {validate} from '../UI/Util/Helpers';
+import {firebasePromotions} from '../../resources/firebase';
+
 
 class Email extends Component {
-
     state = {
         formError:false,
-        formSuccess: '',
-        formData:{
-            email: {
-                element: 'input',
-                value: '',
-                config:{
-                    name: 'email_input',
-                    placeholder:'Enter Your Email',
-                    type: 'email'
+        formSuccess:"",
+        emailForm:{
+
+            email:{
+                elementType: 'input',
+                elementConfig:{
+                    type: 'email',
+                    placeholder:'Your Email'
                 },
+                value: '',
                 validation:{
                     required:true,
-                    email:true,
+                    email:true
                 },
-                valid:false,
-                validationMessage: ''
-               
+                isValid:false,
+                validationMessage:null
             }
+
+        }
+    }
+
+    orderHandler = (e) =>{
+      
+        e.preventDefault();
+        let formData = {};
+        let formIsValid = true;
+        for(let i in this.state.emailForm){
+            formData[i] = this.state.emailForm[i].value;
+            formIsValid = this.state.emailForm.email.isValid && formIsValid;
+        }
+        if(formIsValid){
+            // check to see if the email already exists in the db or not
+            firebasePromotions.orderByChild('email').equalTo(formData.email).once('value')
+                .then((snapshot)=>{
+                    // we have got a matching email with the database
+                    if(snapshot.val() === null){
+                        // push new email to the database
+                        firebasePromotions.push(formData);
+                        this.resetFormSuccess(true);
+                    }
+                    else{   
+                        console.log('email already in the system!');
+                        this.resetFormSuccess(false);
+                 
+                    }
+               
+                })
+         
+          
+        }
+        else{
+            this.setState({
+                formError:true,
+                formSuccess:'Please Enter a valid email!'
+            });
         }
 
+        // clear the form 
+        this.clearForm();
+
+
+  
+     
     }
-    submitFormHandler = (e)=>{
-        e.preventDefault();
-        console.log('form was submiteed');
+    inputChangeHandler = (event,inputIdentifier) =>{
+      
+        // create deep copy of the state
+        const updatedemailForm = {...this.state.emailForm};
+        // copy of the second tier... we are not changing the element config only the value, so we don't need to clone that deeply
+        const updatedFormElement = {...updatedemailForm[inputIdentifier]};
+        updatedFormElement.value = event.target.value;
+        // update the second tier
+     
+         // check validitiy
+         if(event.target.value !== ''){
+            updatedFormElement.isValid = true;
+          //  updatedFormElement.validationMessage = "Email is Valid!";
+        }
+        else{
+            updatedFormElement.isValid = false;
+         //   updatedFormElement.validationMessage = "Please enter a valid email";
+        }
+ 
+        updatedemailForm[inputIdentifier] = updatedFormElement;
+
+       
+        //update the state
+        this.setState({emailForm:updatedemailForm});
+      
+    }
+    resetFormSuccess = (type) =>{
+        const newFormData = {...this.state.emailForm};
+        for(let key in newFormData){
+            newFormData[key].value = '';
+            newFormData[key].isValid = false;
+            newFormData[key].validationMessage = '';
+        }
+        this.setState({
+            formError : false,
+            emailForm: newFormData,
+            formSuccess: type ? 'Congrats!': 'You have already entered the contest!'
+        })
     }
 
-    inputEventHandler = (element)=>{
-        const newFormData = {...this.state.formData};
-        const newElement = {...newFormData[element.id]};
-        newElement.value = element.e.target.value;
-        newFormData[element.id] = newElement;
-        this.setState({formData:newFormData});
-
-        validate();
+    clearForm = ()=>{
+        setTimeout(()=>{
+            this.setState({
+                formSuccess:''
+            })
+        },2000)
     }
     render() {
+        const formElementArray = [];
+        for(let key in this.state.emailForm){
+            formElementArray.push({
+                id: key,
+                config:this.state.emailForm[key]
+            })
+        }
+    
+        let form = (
+            <form onSubmit = {this.orderHandler}>
+                {
+                    formElementArray.map((el)=>(
+
+                            <Input
+                                key = {el.id}
+                                elementType = {el.config.elementType}
+                                elementConfig = {el.config.elementConfig}
+                                value = {el.config.value}
+                                changed = {(event)=>this.inputChangeHandler(event,el.id)}
+                                isValid = {false}
+                            />
+                     ))
+                }
+                <div>
+              
+                </div>
+                  
+                <Button style = {{display:'inlineBlock'}} btnType = "Green">Submit Form</Button>
+                <div>
+                    {this.state.formSuccess}
+                </div>
+             
+            </form>
+        )
+
         return (
-            <div className = {classes.Email}>
-                    <h2>Enter your email</h2>
-                 <form onSubmit = {this.submitFormHandler} action="">
-                    <FormFields
-                        id = {'email'}
-                        formData = {this.state.formData.email}
-                        change = {this.inputEventHandler}
-                    />
-                 </form>
+            <div className = {classes.ContactData}>
+                
+                    <h4>Enter Your Contact Data</h4>
+                    {form}
+               
             </div>
-       
         );
     }
 }
